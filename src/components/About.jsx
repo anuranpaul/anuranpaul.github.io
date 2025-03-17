@@ -26,7 +26,7 @@ const About = () => {
             <p>
               I'm Anuran, a backend developer building and working on
               efficient and scalable server-side applications. My journey in
-              software development began when I was in collefe.
+              software development began when I was in college.
             </p>
             <p>
               I specialize in designing and implementing robust APIs, database
