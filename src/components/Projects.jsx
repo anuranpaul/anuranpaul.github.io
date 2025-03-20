@@ -6,7 +6,14 @@ const Projects = () => {
       title: "API Gateway Service",
       description:
         "A robust API Gateway built with Go, featuring role-based access control, rate limiting, metrics, and user management.",
-      technologies: ["Go", "Redis", "PostgreSQL", "JWT", "Prometheus", "Grafana"],
+      technologies: [
+        "Go",
+        "Redis",
+        "PostgreSQL",
+        "JWT",
+        "Prometheus",
+        "Grafana",
+      ],
       github: "https://github.com/anuranpaul/api_gateway",
     },
     {
@@ -23,6 +30,22 @@ const Projects = () => {
         "Razorpay API",
       ],
       github: "https://github.com/anuranpaul/ZipGroceries",
+    },
+    {
+      title: "AI Log Analyzer",
+      description:
+        "This project is a modern log analysis system that allows for efficient storage, retrieval, and real-time monitoring of application logs using a GraphQL API. It leverages AI capabilities for advanced log analysis and pattern detection.",
+      technologies: [
+        "Java",
+        "Spring",
+        "GraphQL",
+        "Kafka",
+        "PostgreSQL",
+        "Websockets",
+        "Elasticsearch",
+        "Thymeleaf",
+      ],
+      github: "https://github.com/anuranpaul/Log-analyzer",
     },
     // {
     //   title: "Real-time Chat Backend",
