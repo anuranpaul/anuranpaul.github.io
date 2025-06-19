@@ -47,14 +47,14 @@ const Projects = () => {
       ],
       github: "https://github.com/anuranpaul/Log-analyzer",
     },
-    // {
-    //   title: "Real-time Chat Backend",
-    //   description:
-    //     "Backend for a real-time chat application with support for private messaging, group chats, and notifications.",
-    //   technologies: ["Socket.io", "Redis", "Express", "MongoDB"],
-    //   github: "https://github.com/username/chat-backend",
-    //   demo: "https://chat.example.com",
-    // },
+    {
+      title: "Payment Processing Service",
+      description:
+        "Backend for a high-throughput payment processing system with end-to-end encryption, Kafka event streaming, and RabbitMQ-based settlement workflows. Designed for PCI compliance and fault-tolerant architecture.",
+      technologies: ["Spring Boot", "PostgreSQL", "Kafka", "RabbitMQ", "Docker"],
+      github: "https://github.com/anuranpaul/payment",
+      demo: "https://github.com/anuranpaul/payment",
+    },
     {
       title: "Moodboard",
       description:
