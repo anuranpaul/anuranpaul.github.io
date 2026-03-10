@@ -1,115 +1,104 @@
-import ProjectCard from "./ProjectCard";
+import { motion } from 'framer-motion';
+import ProjectCard from './ProjectCard';
 
 const Projects = () => {
   const projects = [
     {
-      title: "API Gateway Service",
+      title: 'API Gateway Service',
       description:
-        "A robust API Gateway built with Go, featuring role-based access control, rate limiting, metrics, and user management.",
-      technologies: [
-        "Go",
-        "Redis",
-        "PostgreSQL",
-        "JWT",
-        "Prometheus",
-        "Grafana",
-      ],
-      github: "https://github.com/anuranpaul/api_gateway",
+        'A robust API Gateway built with Go, featuring role-based access control, rate limiting, metrics, and user management.',
+      technologies: ['Go', 'Redis', 'PostgreSQL', 'JWT', 'Prometheus', 'Grafana'],
+      github: 'https://github.com/anuranpaul/api_gateway',
     },
     {
-      title: "Grocery Delivery System Microservices",
-      description:
-        "A microservices design pattern where each service is independently deployable and scalable.",
-      technologies: [
-        "Java",
-        "Spring Boot",
-        "MongoDB",
-        "PostgreSQL",
-        "Eureka Server",
-        "Spring Cloud",
-        "Razorpay API",
-      ],
-      github: "https://github.com/anuranpaul/ZipGroceries",
+      title: 'Distributed Task Scheduler',
+      description: 'A distributed task scheduler built with fault tolerance and distributed locking.',
+      technologies: ['Go', 'Redis', 'PostgreSQL', 'etcd', 'Prometheus', 'Grafana'],
+      github: 'https://github.com/anuranpaul/task-scheduler',
     },
     {
-      title: "AI Log Analyzer",
+      title: 'Grocery Delivery Microservices',
       description:
-        "This project is a modern log analysis system that allows for efficient storage, retrieval, and real-time monitoring of application logs using a GraphQL API. It leverages AI capabilities for advanced log analysis and pattern detection.",
-      technologies: [
-        "Java",
-        "Spring",
-        "GraphQL",
-        "Kafka",
-        "PostgreSQL",
-        "Websockets",
-        "Elasticsearch",
-        "Thymeleaf",
-      ],
-      github: "https://github.com/anuranpaul/Log-analyzer",
+        'A microservices design pattern where each service is independently deployable and scalable.',
+      technologies: ['Java', 'Spring Boot', 'MongoDB', 'PostgreSQL', 'Eureka', 'Spring Cloud'],
+      github: 'https://github.com/anuranpaul/ZipGroceries',
     },
     {
-      title: "Payment Processing Service",
+      title: 'AI Log Analyzer',
       description:
-        "Backend for a high-throughput payment processing system with end-to-end encryption, Kafka event streaming, and RabbitMQ-based settlement workflows. Designed for PCI compliance and fault-tolerant architecture.",
-      technologies: ["Spring Boot", "PostgreSQL", "Kafka", "RabbitMQ", "Docker"],
-      github: "https://github.com/anuranpaul/payment",
-      demo: "https://github.com/anuranpaul/payment",
+        'A modern log analysis system with efficient storage, retrieval, and real-time monitoring of application logs using a GraphQL API. Leverages AI for advanced log analysis and pattern detection.',
+      technologies: ['Java', 'Spring', 'GraphQL', 'Kafka', 'PostgreSQL', 'Websockets', 'Elasticsearch', 'Thymeleaf'],
+      github: 'https://github.com/anuranpaul/Log-analyzer',
     },
     {
-      title: "Moodboard",
+      title: 'Payment Processing Service',
       description:
-        "Moodboard is a unique platform designed to help you clear your mind and unleash your creativity through the power of expressive writing.",
-      technologies: ["React", "Next.js", "Tailwind CSS", "Shadcn UI"],
-      github: "https://github.com/anuranpaul/Moodboard",
-      demo: "https://moodbaord.vercel.app",
+        'Backend for a high-throughput payment processing system with end-to-end encryption, Kafka event streaming, and RabbitMQ-based settlement workflows. Designed for PCI compliance and fault-tolerant architecture.',
+      technologies: ['Spring Boot', 'PostgreSQL', 'Kafka', 'RabbitMQ', 'Docker'],
+      github: 'https://github.com/anuranpaul/payment',
+      demo: 'https://github.com/anuranpaul/payment',
     },
     {
-      title: "QuizMe",
+      title: 'Moodboard',
       description:
-        "An AI-powered platform for creating quizzes from your text.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "Next-Auth",
-        "React-Query",
-        "OpenAI",
-        "Prisma",
-        "TailwindCSS",
-      ],
-      github: "https://github.com/anuranpaul/QuizMe",
-      demo: "https://quizme-fire.vercel.app/",
+        'Moodboard is a unique platform designed to help you clear your mind and unleash your creativity through the power of expressive writing.',
+      technologies: ['React', 'Next.js', 'Tailwind CSS', 'Shadcn UI'],
+      github: 'https://github.com/anuranpaul/Moodboard',
+      demo: 'https://moodbaord.vercel.app',
     },
-    // {
-    //   title: "Data Processing Pipeline",
-    //   description:
-    //     "ETL pipeline for processing and analyzing large datasets with scheduling and monitoring capabilities.",
-    //   technologies: ["Python", "Apache Airflow", "PostgreSQL", "Pandas"],
-    //   github: "https://github.com/username/data-pipeline",
-    //   demo: "https://data-demo.example.com",
-    // },
+    {
+      title: 'QuizMe',
+      description:
+        'An AI-powered platform for creating quizzes from your text, with authentication and data persistence.',
+      technologies: ['Next.js', 'TypeScript', 'Next-Auth', 'React-Query', 'OpenAI', 'Prisma'],
+      github: 'https://github.com/anuranpaul/QuizMe',
+      demo: 'https://quizme-fire.vercel.app/',
+    },
   ];
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.1 },
+    },
+  };
 
   return (
     <section id="projects">
       <div className="container">
-        <h2 className="section-title">Some Things I've Built</h2>
-        <div className="projects-grid">
+        <motion.h2
+          className="section-title"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.5 }}
+        >
+          Projects
+        </motion.h2>
+
+        <motion.div
+          className="projects-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+        >
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+            <ProjectCard key={index} project={project} index={index} />
           ))}
-        </div>
+        </motion.div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .projects-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 20px;
+          grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+          gap: 24px;
         }
 
         @media screen and (max-width: 768px) {
           .projects-grid {
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
           }
         }
       `}</style>
