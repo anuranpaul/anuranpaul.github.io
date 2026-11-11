@@ -39,14 +39,6 @@ const Projects = () => {
       demo: 'https://github.com/anuranpaul/payment',
     },
     {
-      title: 'Moodboard',
-      description:
-        'Moodboard is a unique platform designed to help you clear your mind and unleash your creativity through the power of expressive writing.',
-      technologies: ['React', 'Next.js', 'Tailwind CSS', 'Shadcn UI'],
-      github: 'https://github.com/anuranpaul/Moodboard',
-      demo: 'https://moodbaord.vercel.app',
-    },
-    {
       title: 'QuizMe',
       description:
         'An AI-powered platform for creating quizzes from your text, with authentication and data persistence.',

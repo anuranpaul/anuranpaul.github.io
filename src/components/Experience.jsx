@@ -12,6 +12,14 @@ const Experience = () => {
         'Migrated 2 production Angular applications from v15 to v20, adopting standalone components, Signals, and updated control flow syntax.',
         'Reduced API P95 latency by 42% (480ms → 280ms) by eliminating N+1 queries, improving connection pooling, and optimizing Hibernate query execution in production systems.',
         'Implemented asynchronous workflows using RabbitMQ, replacing synchronous service calls and reducing cross-service failure propagation.',
+        'Own 30+ production REST APIs connecting the resort platform to Oracle Hospitality (OHIP), delivering 99.4% uptime this fiscal year. Designed two APIs from scratch for reservation and guest data serving 6K+ daily guests—about 3× at holiday peaks.',
+        'Cut API P95 latency by 42% (480ms → 280ms) on a MariaDB/AWS RDS service by fixing Hibernate N+1 queries with JPQL JOIN FETCH and tuning HikariCP; verified results in Grafana and Prometheus.',
+        'Worked on a Java 17 and Spring Boot checkout microservice (5ms latency, 99.2% success YTD); added a RabbitMQ queue for downstream analytics and shipped card-on-file check-in through the in-house wallet SDK.',
+        'Shadowed the tech lead on a configuration-driven event publishing framework using the Strategy pattern, supporting RabbitMQ, AWS Kinesis, dual-publish, and disabled modes; 20+ planned events can onboard by configuration alone.',
+        'Co-own CI/CD for a 30+ microservice platform using Harness, Docker, and AWS ECS in a five-person team; on-call for P1/P2 incidents, including a Kinesis data-loss P2 resolved in five hours using Compass and a Python replay script.',
+        'Led a zero-downtime authentication migration across two services using an AWS Lambda authorizer behind API Gateway.',
+        'Held 85%+ test coverage on critical paths with JUnit 5 and Mockito; migrated 20+ Python Behave/Gherkin test cases to a Java Selenium framework on AAP, with more in progress.',
+        'Built AI cost telemetry tracking real-time spend per user and LLM, supporting the decision to retire Kiro after three months and consolidate on Cursor and Claude Code; earned a Client Recognition Award for spec-driven AI coding workflows.',
       ],
     },
     {
@@ -27,6 +35,7 @@ const Experience = () => {
         'Integrated Spring Security with JWT authentication, enhancing API security and ensuring compliance with industry standards.',
         'Developed and deployed containerized microservices using Spring Cloud and Docker on AWS ECS, improving scalability and deployment efficiency.',
         'Implemented asynchronous messaging with RabbitMQ, improving inter-service communication and reducing system latency by 30%.',
+        'Piloted the uplift of two services and one batch application from end-of-life Java 8/11 to Java 21 (LTS) using Cursor and Claude Code, closing known security vulnerabilities. Wrote the migration runbook that cut effort for similar-sized apps from 12 days to five—a 58% reduction.',
       ],
     },
   ];

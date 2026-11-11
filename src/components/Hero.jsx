@@ -182,7 +182,7 @@ const Hero = () => {
   const descriptionText = "I build robust and scalable server-side applications. With expertise in Java, I specialize in creating efficient, secure, and high-performance backend systems.";
 
   const title = useTypewriter(titleText, 70, 300);
-  const name = useTypewriter(nameText, 70, titleText.length * 70 + 600);
+  const name = useTypewriter(nameText, 70, 300 + titleText.length * 70 + 220);
   const role = useTypewriter(roleText, 50, titleText.length * 70 + nameText.length * 70 + 900);
   const description = useTypewriter(
     descriptionText,
@@ -237,7 +237,6 @@ const Hero = () => {
             <h1>
               <span className="title-wrapper">{title.displayText}</span>
               <span className="name">{name.displayText}</span>
-              <span className="cursor-blink" />
             </h1>
 
             <h2 className="role-wrapper">
@@ -405,22 +404,6 @@ const Hero = () => {
         .hero-content h1 .name {
           color: var(--accent);
           font-weight: 800;
-        }
-
-        .cursor-blink {
-          display: inline-block;
-          width: 3px;
-          height: 0.65em;
-          background: var(--accent);
-          margin-left: 4px;
-          animation: blink 1s step-end infinite;
-          vertical-align: middle;
-          border-radius: 2px;
-        }
-
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
         }
 
         .hero-content h2 {
