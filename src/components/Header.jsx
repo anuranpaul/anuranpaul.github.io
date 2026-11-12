@@ -21,7 +21,7 @@ const Header = ({ isScrolled }) => {
     return () => { document.body.style.overflow = 'auto'; };
   }, [isMenuOpen]);
 
-  const navItems = ['About', 'Experience', 'Projects', 'Contact'];
+  const navItems = ['About', 'Experience', 'Tech Stack', 'Projects'];
 
   return (
     <motion.header
@@ -56,7 +56,7 @@ const Header = ({ isScrolled }) => {
                 transition={{ duration: 0.4, delay: 0.1 * i }}
               >
                 <a
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${item === 'Tech Stack' ? 'tech-stack' : item.toLowerCase()}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="nav-number">0{i + 1}.</span>

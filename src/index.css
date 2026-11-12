@@ -295,7 +295,7 @@ nav ul li a:hover { background: transparent !important; color: var(--accent) !im
 #hero .hero-illustration svg > rect, #hero .hero-illustration svg > circle { stroke: var(--ink); }
 
 /* Content sections */
-#about, #experience, #projects { border-top: 2px solid var(--border-subtle); }
+#about, #experience, #tech-stack, #projects { border-top: 2px solid var(--border-subtle); }
 #about .about-layout { grid-template-columns: .8fr 1.2fr; align-items: start; }
 #about .about-text { border-left: 5px solid var(--accent); padding-left: 22px; }
 #about .skill-card { padding: 22px !important; }

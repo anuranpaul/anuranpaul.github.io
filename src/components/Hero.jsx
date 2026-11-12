@@ -3,6 +3,8 @@ import { MdEmail } from 'react-icons/md';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
+const ROLE_TEXT = ['Backend Engineer', 'Applied AI Engineer'];
+
 const useTypewriter = (text, speed = 70, delay = 0) => {
   const [displayText, setDisplayText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
@@ -31,6 +33,35 @@ const useTypewriter = (text, speed = 70, delay = 0) => {
   }, [text, speed, delay]);
 
   return { displayText, isComplete };
+};
+
+const useRoleLoop = (roles, speed = 75, pause = 1500) => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+
+  useEffect(() => {
+    let index = 0;
+    let deleting = false;
+    let timeout;
+    const tick = () => {
+      const role = roles[roleIndex];
+      index += deleting ? -1 : 1;
+      setDisplayText(role.slice(0, index));
+      if (!deleting && index === role.length) {
+        deleting = true;
+        timeout = setTimeout(tick, pause);
+      } else if (deleting && index === 0) {
+        deleting = false;
+        setRoleIndex((current) => (current + 1) % roles.length);
+      } else {
+        timeout = setTimeout(tick, deleting ? speed / 2 : speed);
+      }
+    };
+    timeout = setTimeout(tick, speed);
+    return () => clearTimeout(timeout);
+  }, [roles, roleIndex, speed, pause]);
+
+  return displayText;
 };
 
 /* ── A pure-SVG "backend dev" illustration ── */
@@ -178,16 +209,15 @@ const Hero = () => {
 
   const titleText = "Hi, I'm ";
   const nameText = "Anuran Paul";
-  const roleText = "Full-Stack Developer";
-  const descriptionText = "I build robust and scalable server-side applications. With expertise in Java, I specialize in creating efficient, secure, and high-performance backend systems.";
+  const descriptionText = 'Software Engineer and co-founder of Eigen.so. I build distributed backend systems that hold up in production.';
 
   const title = useTypewriter(titleText, 70, 300);
   const name = useTypewriter(nameText, 70, 300 + titleText.length * 70 + 220);
-  const role = useTypewriter(roleText, 50, titleText.length * 70 + nameText.length * 70 + 900);
+  const role = useRoleLoop(ROLE_TEXT);
   const description = useTypewriter(
     descriptionText,
     15,
-    titleText.length * 70 + nameText.length * 70 + roleText.length * 50 + 1200
+    titleText.length * 70 + nameText.length * 70 + 1200
   );
 
   useEffect(() => {
@@ -241,8 +271,8 @@ const Hero = () => {
 
             <h2 className="role-wrapper">
               <span className="role-prompt">&gt; </span>
-              {role.displayText}
-              {!role.isComplete && <span className="underscore">_</span>}
+              {role}
+              <span className="underscore">_</span>
             </h2>
 
             <p className="description-wrapper">{description.displayText}</p>

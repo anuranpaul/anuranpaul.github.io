@@ -65,7 +65,7 @@ const Projects = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.5 }}
         >
-          Projects
+          <><span className="project-section-number">04</span> Projects</>
         </motion.h2>
 
         <motion.div

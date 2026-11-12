@@ -4,7 +4,7 @@ const Experience = () => {
   const jobs = [
     {
       id: 'job2',
-      title: 'Senior Software Engineer',
+      title: 'Senior Software Analyst',
       company: 'Capgemini',
       location: 'Mumbai, India',
       duration: 'Oct 2025 — Present',
@@ -24,7 +24,7 @@ const Experience = () => {
     },
     {
       id: 'job1',
-      title: 'Software Engineer',
+      title: 'Software Analyst',
       company: 'Capgemini',
       location: 'Mumbai, India',
       duration: 'March 2024 — Sep 2025',

@@ -1,36 +1,11 @@
 import { motion } from 'framer-motion';
-import { FaServer, FaCode, FaCloud } from 'react-icons/fa';
 
 const About = () => {
-  const skillCategories = [
-    {
-      title: 'Backend',
-      icon: <FaServer />,
-      skills: ['Java', 'Spring Boot', 'Node.js', 'Express', 'Go', 'GraphQL'],
-    },
-    {
-      title: 'Frontend',
-      icon: <FaCode />,
-      skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-    },
-    {
-      title: 'Infrastructure',
-      icon: <FaCloud />,
-      skills: ['Docker', 'AWS', 'PostgreSQL', 'MongoDB', 'Redis', 'Kafka'],
-    },
+  const certifications = [
+    { code: 'AZ-900', name: 'Azure Fundamentals', issuer: 'Microsoft Azure', badge: 'https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg' },
+    { code: 'GH-300', name: 'GitHub Copilot', issuer: 'GitHub', badge: '/gh-300-badge.png' },
+    { code: 'CCDV-F', name: 'Claude Certified Developer', issuer: 'Anthropic', badge: '/ccdv-f-badge.png' },
   ];
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
 
   return (
     <section id="about">
@@ -54,42 +29,36 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <p>
-              I'm Anuran — a <strong>backend-focused fullstack developer</strong> who builds
-              efficient, scalable server-side applications. My journey started in college,
-              and since then I've been obsessed with creating systems that are not just
-              functional, but maintainable, secure, and blazing fast.
+              I’m a <strong>Software Engineer</strong> who builds backend systems that have to be right the first time. At work, I build payments and checkout microservices in Java, Go, and Spring Boot for a hospitality platform serving 75,000+ guests a day, with RabbitMQ, PostgreSQL, and AWS underneath. I enjoy the unglamorous parts that make systems trustworthy: idempotency, failure handling, observability, and clean deploys.
             </p>
             <p>
-              I specialize in designing robust APIs, database architectures, and
-              microservice ecosystems. While my core strength is backend engineering,
-              I enjoy building polished frontends to bring the full picture together.
+              Outside work, I’m co-founder of <strong>Eigen.so</strong>, a live SaaS workspace platform. I took over its backend and evolved it into an async, production-grade service with a hierarchical access-control engine, idempotent subscription billing with signed webhooks, and an AI layer with model routing, evals, and guardrails. Working on both a large enterprise system and a product I co-own keeps me honest about trade-offs: one teaches me scale and rigor, the other teaches me speed and ownership.
             </p>
           </motion.div>
 
           <motion.div
-            className="skills-grid"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
+            className="certifications-card"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.5 }}
           >
-            {skillCategories.map((cat) => (
-              <motion.div
-                key={cat.title}
-                className="skill-card glass-card"
-                variants={itemVariants}
-              >
-                <div className="skill-card-header">
-                  <span className="skill-icon">{cat.icon}</span>
-                  <h3>{cat.title}</h3>
+            <div className="certifications-heading">
+              <span className="certification-stamp">✓</span>
+              <div><span className="certifications-label">Credentials / 03</span><h3>Certifications</h3></div>
+            </div>
+            <div className="certifications-list">
+              {certifications.map((certification, index) => (
+                <div className="certification-row" key={certification.code}>
+                  <div className="certification-copy">
+                    <span className="certification-code">{certification.code}</span>
+                    <h4>{certification.name}</h4>
+                    <span className="certification-issuer">{certification.issuer}</span>
+                  </div>
+                  <img className="certification-badge" src={certification.badge} alt={`${certification.issuer} ${certification.name} badge`} loading="lazy" />
                 </div>
-                <div className="skill-tags">
-                  {cat.skills.map((skill) => (
-                    <span key={skill} className="skill-pill">{skill}</span>
-                  ))}
-                </div>
-              </motion.div>
             ))}
+            </div>
           </motion.div>
         </div>
       </div>
@@ -113,67 +82,20 @@ const About = () => {
           font-weight: 600;
         }
 
-        .skills-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          gap: 16px;
-        }
-
-        .skill-card {
-          padding: 24px;
-        }
-
-        .skill-card-header {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          margin-bottom: 18px;
-        }
-
-        .skill-icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 38px;
-          height: 38px;
-          border-radius: 10px;
-          background: var(--accent-muted);
-          color: var(--accent);
-          font-size: 16px;
-        }
-
-        .skill-card h3 {
-          font-size: 15px;
-          font-weight: 700;
-          color: var(--text-primary);
-        }
-
-        .skill-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
-
-        .skill-pill {
-          font-size: 13px;
-          font-weight: 500;
-          padding: 5px 13px;
-          border-radius: 8px;
-          background: var(--accent-muted);
-          color: var(--text-secondary);
-          border: 1px solid transparent;
-          transition: all var(--transition-fast);
-        }
-
-        .skill-pill:hover {
-          color: var(--accent);
-          border-color: var(--border-hover);
-        }
+        .certifications-card { align-self: start; background: var(--bg-surface); border: 2px solid var(--ink); box-shadow: 7px 7px 0 var(--ink); color: var(--ink); }
+        .certifications-heading { display: flex; align-items: center; gap: 16px; padding: 22px; border-bottom: 2px solid var(--ink); background: var(--accent); }
+        .certification-stamp { width: 42px; height: 42px; display: grid; place-items: center; border: 2px solid var(--ink); border-radius: 50%; font-size: 25px; font-weight: 800; }
+        .certifications-label, .certification-code, .certification-index { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .06em; font-size: 10px; }
+        .certifications-heading h3 { font-size: 22px; line-height: 1.2; margin-top: 4px; }
+        .certification-row { display: grid; grid-template-columns: 1fr 68px; gap: 16px; align-items: center; padding: 16px 22px; border-bottom: 1px solid var(--border-subtle); }
+        .certification-row:last-child { border-bottom: 0; }
+        .certification-code { color: #087c9d; font-weight: 700; }
+        .certification-copy h4 { font-size: 15px; margin: 3px 0; color: var(--ink); }
+        .certification-issuer { font-size: 12px; color: #606066; }
+        .certification-badge { display: block; width: 64px; height: 64px; object-fit: contain; }
 
         @media screen and (max-width: 768px) {
-          .skills-grid {
-            grid-template-columns: 1fr;
-          }
+          .certifications-card { width: 100%; }
         }
       `}</style>
     </section>
